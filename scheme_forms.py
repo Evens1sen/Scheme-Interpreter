@@ -1,3 +1,4 @@
+from cgi import print_arguments
 from scheme_eval_apply import *
 from scheme_utils import *
 from scheme_classes import *
@@ -38,6 +39,10 @@ def do_define_form(expressions, env):
         validate_form(expressions, 2, 2)  # Checks that expressions is a list of length exactly 2
         # BEGIN PROBLEM 4
         "*** YOUR CODE HERE ***"
+        value = expressions.rest.first
+        value = scheme_eval(value, env) if isinstance(value, Pair) else value
+        env.define(signature, value)
+        return signature
         # END PROBLEM 4
     elif isinstance(signature, Pair) and scheme_symbolp(signature.first):
         # defining a named procedure e.g. (define (f x y) (+ x y))
