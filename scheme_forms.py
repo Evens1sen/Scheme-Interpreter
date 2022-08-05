@@ -1,4 +1,5 @@
 from cgi import print_arguments
+from unicodedata import name
 from scheme_eval_apply import *
 from scheme_utils import *
 from scheme_classes import *
@@ -223,6 +224,14 @@ def make_let_frame(bindings, env):
     names = vals = nil
     # BEGIN PROBLEM 14
     "*** YOUR CODE HERE ***"
+    cur_bind = bindings
+    while cur_bind != nil:
+        validate_form(cur_bind.first, 2, 2)
+        names = Pair(cur_bind.first.first, names)
+        vals = Pair(scheme_eval(cur_bind.first.rest.first, env), vals)
+        cur_bind = cur_bind.rest
+
+    validate_formals(names)
     # END PROBLEM 14
     return env.make_child_frame(names, vals)
 
