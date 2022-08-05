@@ -7,8 +7,13 @@
 ;; Returns a list of two-element lists
 (define (enumerate s)
   ; BEGIN PROBLEM 15
-  'replace-this-line
+  (define (helper so-far remain i)
+      (if (null? remain) so-far
+        (helper (append so-far (list (list i (car remain)))) (cdr remain) (+ i 1))
+      )
   )
+  (helper nil s 0)
+)
   ; END PROBLEM 15
 
 ;; Problem 16
