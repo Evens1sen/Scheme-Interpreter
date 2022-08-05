@@ -39,7 +39,7 @@ class Frame:
         val = self.bindings.get(symbol)
         if val is not None:
             return val
-        
+
         if self.parent:
             return self.parent.lookup(symbol)
         # END PROBLEM 1
@@ -60,6 +60,16 @@ class Frame:
             raise SchemeError('Incorrect number of arguments to function call')
         # BEGIN PROBLEM 8
         "*** YOUR CODE HERE ***"
+        child_frame = Frame(parent=self)
+        
+        cur_formal = formals
+        cur_val = vals
+        while cur_formal != nil:
+            child_frame.define(symbol=cur_formal.first, value=cur_val.first)
+            cur_formal = cur_formal.rest
+            cur_val = cur_val.rest
+
+        return child_frame
         # END PROBLEM 8
 
 ##############
