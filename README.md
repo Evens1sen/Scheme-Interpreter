@@ -2,6 +2,8 @@
 
 This is the final project of UC Berkeley CS 61A: Structure and Interpretation of Computer Programs.
 
+The document of this project is: https://inst.eecs.berkeley.edu/~cs61a/su22/proj/scheme/
+
 In this project, you will develop an interpreter for a subset of the Scheme language. As you proceed, think about the issues that arise in the design of a programming language; many quirks of languages are byproducts of implementation decisions in interpreters and compilers. The subset of the language used in this project is described in the functional programming section of Composing Programs, as well as this language specification and built-in procedure reference.
 
 Watch the lecture on Interpreters for an overview of the project.
